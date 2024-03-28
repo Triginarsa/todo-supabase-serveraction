@@ -85,41 +85,42 @@ export default function TodosComponents({ todos }: TodosComponentProps) {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center w-full max-w-md p-6 bg-white rounded-lg shadow-md mb-4">
-        <form ref={ref} action={clientAction} className="w-full">
-          <div className="mb-4">
-            <label
-              htmlFor="todo"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Todo
-            </label>
-            <div className="mt-1">
-              <input
-                id="todo"
-                name="todo"
-                type="text"
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-black"
-                placeholder="What needs to be done?"
-              />
-            </div>
-          </div>
-          <div className="flex justify-end mt-4">
-            <Button />
-          </div>
-        </form>
+      <div className="my-4 mx-6 overflow-y-auto max-h-full mt-48 mb-48">
+        <ul>
+          {optimisticTodo.map((todo) => (
+            <li className="w-full grid items-center max-w-md" key={todo.id}>
+              <span className="my-1 w-full py-2 px-3 text-start bg-zinc-100 rounded-lg border border-zinc-200 text-zinc-700 text-base font-light">
+                {todo.todo}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
-
-      <ul>
-        {optimisticTodo.map((todo) => (
-          <li className="w-full grid items-center" key={todo.id}>
-            <span className="my-1 w-full text-zinc-800 bg-zinc-200 py-2 px-20 rounded-2xl text-center border border-zinc-300">
-              {todo.todo}
-            </span>
-          </li>
-        ))}
-      </ul>
+      <div className="bg-white dark:bg-black w-full h-full">
+        <div className="fixed bottom-0 flex flex-col items-center justify-center w-full h-40 max-w-md p-6 bg-zinc-50 border-t md:border border-zinc-200 rounded-none md:rounded-xl my-0 md:my-4 mx-0 md:mx-6">
+          <form ref={ref} action={clientAction} className="w-full">
+            <div className="mb-4">
+              <label
+                htmlFor="todo"
+                className="block text-sm font-medium text-zinc-700"
+              ></label>
+              <div className="mt-1">
+                <input
+                  id="todo"
+                  name="todo"
+                  type="text"
+                  required
+                  className="w-full px-3 py-2 border border-zinc-300 rounded-md shadow-sm focus:outline-none focus:ring-zinc-500 focus:border-zinc-500 text-black"
+                  placeholder="What needs to be done?"
+                />
+              </div>
+            </div>
+            <div className="flex justify-end mt-4">
+              <Button />
+            </div>
+          </form>
+        </div>
+      </div>
     </>
   );
 }

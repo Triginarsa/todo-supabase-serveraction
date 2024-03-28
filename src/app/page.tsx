@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import TodosComponents from "@/components/TodosComponents";
 import { createClient } from "@supabase/supabase-js";
 
@@ -9,11 +10,11 @@ export default async function Home() {
   const { data } = await supabase.from("todos").select("*");
 
   return (
-    <main className="flex flex-col items-center justify-between min-h-screen p-6 bg-gray-100">
-      <h2 className="text-2xl font-bold text-blue-600 my-4">
-        🚀 Server Actions Demo 🚀
-      </h2>
-      <TodosComponents todos={data ?? []} />
+    <main className="flex items-center justify-center">
+      <div className="container flex flex-col min-h-screen w-full">
+        <Header />
+        <TodosComponents todos={data ?? []} />
+      </div>
     </main>
   );
 }
