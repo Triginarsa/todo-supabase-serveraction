@@ -1,5 +1,4 @@
 import { Permanent_Marker } from "next/font/google";
-import Header from "./Header";
 
 const marker = Permanent_Marker({ weight: "400", subsets: ["latin"] });
 
@@ -14,7 +13,7 @@ export default function Title() {
 
   return (
     <div className="-space-y-3">
-      <p className="text-zinc-400 dark:text-zinc-500 text-[10px] font-normal font-['Helvetica']">
+      <p className="text-zinc-400 dark:text-zinc-500 text-[12px] font-normal font-['Helvetica']">
         {thisDate}
       </p>
       <div className={marker.className}>
