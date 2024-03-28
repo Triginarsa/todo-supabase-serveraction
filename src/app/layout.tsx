@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Noto_Sans_Mono } from "next/font/google";
-import "@radix-ui/themes/styles.css";
 import "./globals.css";
 
 const noto = Noto_Sans_Mono({ subsets: ["latin"] });
